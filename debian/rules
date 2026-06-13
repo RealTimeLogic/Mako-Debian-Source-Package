@@ -1,6 +1,11 @@
 #!/usr/bin/make -f
 
+ifneq ($(wildcard download-source-package.sh),)
+$(error Run ./download-source-package.sh first, then cd source-package and run dpkg-buildpackage -us -uc)
+endif
+
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export MinifyMakoZip = no
 
 %:
 	dh $@

@@ -38,6 +38,16 @@ directory, for example:
 mako-server_5803.orig.tar.gz
 ```
 
+Do not run `dpkg-buildpackage` from this maintainer repo root. Run it from the
+generated `source-package/` directory. Debian source format `3.0 (quilt)`
+expects the upstream tarball to be in the parent directory, so the layout after
+running the script is:
+
+```text
+mako-server_5803.orig.tar.gz
+source-package/
+```
+
 ## Build
 
 From inside `source-package/`, install build dependencies and build using
@@ -60,6 +70,10 @@ make -C BAS -f mako.mk EPOLL=TRUE PYTHON=
 `PYTHON=` is intentional. The upstream makefile generates a random
 `NewEncryptionKey.h` when Python is available, which makes package builds less
 reproducible.
+
+The Debian rules also set `MinifyMakoZip=no`. This avoids the interactive
+`BAS-Resources/build/mako.sh` prompt about minifying JavaScript and CSS files
+and avoids adding Node/npm to the default package build path.
 
 ## Install Layout
 
