@@ -98,7 +98,7 @@ copy_without_git() {
 copy_packaging_metadata() {
   printf 'Copying Debian packaging metadata\n'
   cp -R debian "$PACKAGE_DIR/"
-  cp PACKAGING.md "$PACKAGE_DIR/"
+  cp README.md "$PACKAGE_DIR/PACKAGING.md"
   find "$PACKAGE_DIR/debian" -type f -exec chmod 0644 {} +
   chmod 0755 "$PACKAGE_DIR/debian/rules"
   chmod 0755 "$PACKAGE_DIR/debian/mako"
