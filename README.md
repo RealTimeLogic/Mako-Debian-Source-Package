@@ -39,14 +39,7 @@ mako-server_5803.orig.tar.gz
 ```
 
 Do not run `dpkg-buildpackage` from this maintainer repo root. Run it from the
-generated `source-package/` directory. Debian source format `3.0 (quilt)`
-expects the upstream tarball to be in the parent directory, so the layout after
-running the script is:
-
-```text
-mako-server_5803.orig.tar.gz
-source-package/
-```
+generated `source-package/` directory.
 
 ## Build
 
@@ -74,6 +67,20 @@ reproducible.
 The Debian rules also set `MinifyMakoZip=no`. This avoids the interactive
 `BAS-Resources/build/mako.sh` prompt about minifying JavaScript and CSS files
 and avoids adding Node/npm to the default package build path.
+
+## All commands
+
+Copying and running the following should produce a deb package:
+
+```sh
+sudo apt-get install build-essential devscripts debhelper zip
+git clone https://github.com/RealTimeLogic/Mako-Debian-Source-Package.git
+cd Mako-Debian-Source-Package/
+chmod +x download-source-package.sh
+./download-source-package.sh
+cd source-package
+dpkg-buildpackage -us -uc
+```
 
 ## Install Layout
 

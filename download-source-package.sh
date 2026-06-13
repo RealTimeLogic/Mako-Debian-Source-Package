@@ -104,6 +104,16 @@ copy_packaging_metadata() {
   chmod 0755 "$PACKAGE_DIR/debian/mako"
 }
 
+remove_generated_artifacts() {
+  printf 'Removing generated build artifacts from source-package\n'
+  rm -rf "$PACKAGE_DIR/BAS-Resources/build/MakoBuild"
+  rm -f "$PACKAGE_DIR/BAS-Resources/build/mako.zip"
+  rm -f "$PACKAGE_DIR/BAS/mako"
+  rm -f "$PACKAGE_DIR/BAS/mako.zip"
+  rm -f "$PACKAGE_DIR/BAS"/*.o
+  rm -f "$PACKAGE_DIR/BAS/examples/MakoServer/src/NewEncryptionKey.h"
+}
+
 bas_package_version() {
   local bas_version
 
@@ -180,6 +190,7 @@ main() {
     copy_without_git "$dir"
   done
 
+  remove_generated_artifacts
   copy_packaging_metadata
   update_debian_changelog_version
   create_orig_tarball

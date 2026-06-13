@@ -24,3 +24,5 @@ override_dh_auto_clean:
 	$(MAKE) -C BAS -f mako.mk clean || true
 	rm -f BAS/mako.zip
 	rm -f BAS/examples/MakoServer/src/NewEncryptionKey.h
+	rm -rf BAS-Resources/build/MakoBuild
+	rm -f BAS-Resources/build/mako.zip
