@@ -1,0 +1,19 @@
+Source: mako-server
+Section: web
+Priority: optional
+Maintainer: Real Time Logic <support@realtimelogic.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ zip
+Standards-Version: 4.7.0
+Homepage: https://realtimelogic.com/products/mako-server/
+Rules-Requires-Root: no
+
+Package: mako-server
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: Mako Server built from source
+ Mako Server is a compact application and web server built from the
+ bundled BAS source tree and third-party source dependencies.

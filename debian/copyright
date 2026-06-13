@@ -1,0 +1,33 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Mako Server
+Source: https://github.com/RealTimeLogic/BAS
+
+Files: *
+Copyright: Real Time Logic
+License: GPL-2.0-only
+ This package includes the Barracuda App Server / Mako Server source tree.
+ The upstream BAS repository includes the GPL-2 license text in LICENSE.
+ .
+ On Debian systems, the complete GPL-2 license text is available at
+ /usr/share/common-licenses/GPL-2.
+
+Files: BAS/src/sqlite3.c BAS/src/sqlite3.h BAS/src/sqlite3ext.h BAS/src/shell.c
+Copyright: SQLite contributors
+License: blessing
+ SQLite is in the public domain. See https://sqlite.org/copyright.html.
+
+Files: LPeg/*
+Copyright: 2007-2023 Lua.org, PUC-Rio
+License: MIT
+ See LPeg/lpeg.html for the complete license terms.
+
+Files: lua-protobuf/*
+Copyright: 2018 Xavier Wang
+License: MIT
+ See lua-protobuf/LICENSE for the complete license terms.
+
+Files: CBOR/*
+Copyright: Sean Conner
+License: LGPL-3.0-or-later
+ See CBOR/LICENSE and CBOR/org.conman.cbor-1.4.0-1.rockspec for the complete
+ license terms.

@@ -1,0 +1,5 @@
+mako-server (5803-1) unstable; urgency=medium
+
+  * Initial Debian packaging template for source-based Mako Server builds.
+
+ -- Real Time Logic <support@realtimelogic.com>  Sat, 13 Jun 2026 00:00:00 +0200

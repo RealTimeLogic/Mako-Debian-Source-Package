@@ -1,0 +1,37 @@
+Mako Server Debian source package
+=================================
+
+This package is intended to be built from a complete source-package tree
+created before Debian build tools are run.
+
+The Debian build must not download source code. The source-package tree should
+already contain:
+
+* BAS
+* BAS-Resources
+* LPeg
+* lua-protobuf
+* CBOR
+* SQLite amalgamation files copied into BAS/src
+
+For source package builds using source format 3.0 (quilt), the matching
+upstream tarball should be present in the parent directory, for example:
+
+    ../mako-server_5803.orig.tar.gz
+
+The generated Debian package version is based on BAS/inc/HttpServer.h:
+
+    #define BASLIB_VER_NO 5803
+
+This becomes Debian package version 5803-1.
+
+The package build runs:
+
+    make -C BAS -f mako.mk EPOLL=TRUE PYTHON=
+
+PYTHON is cleared intentionally so mako.mk does not generate a random
+NewEncryptionKey.h during package builds. This keeps builds deterministic.
+
+The build installs the real executable and mako.zip under
+/usr/lib/mako-server, then installs /usr/bin/mako as a wrapper. The upstream
+build expects mako.zip to be next to the real mako executable.

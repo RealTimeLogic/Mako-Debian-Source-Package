@@ -1,0 +1,3 @@
+BAS/mako usr/lib/mako-server
+BAS/mako.zip usr/lib/mako-server
+debian/mako usr/bin
